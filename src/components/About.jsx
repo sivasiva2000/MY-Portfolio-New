@@ -8,7 +8,7 @@ const About = () => {
 
   const stats = [
     { label: 'Years Experience', value: '2+' },
-    { label: 'Projects Completed', value: '10+' },
+    { label: 'Projects Completed', value: '15+' },
     { label: 'Technologies', value: '20+' },
     // { label: 'Happy Clients', value: '30+' },
   ]
@@ -31,8 +31,8 @@ const About = () => {
     },
     {
       icon: FiTool,
-      title: 'DevOps & CI/CD',
-      description: 'Implementing automated pipelines and infrastructure as code for seamless deployments.',
+      title: 'IGA & Security',
+      description: 'Skilled in Identity Governance & Administration (IGA) solutions and security automation to enhance system integrity.',
     },
   ]
 
@@ -93,23 +93,17 @@ const About = () => {
             className="px-4 sm:px-0 lg:col-span-2 max-w-4xl mx-auto text-center"
           >
             <h3 className="text-2xl sm:text-3xl font-bold mb-4">
-              I'm a Software Development Engineer
+              I am a software developer focused on Identity & Access Management (IAM), API engineering, and security automation. I have hands-on experience working with platforms such as Okta, AWS IAM Identity Center, CyberArk, and ServiceNow.
             </h3>
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-              With a passion for creating elegant solutions to complex problems, I specialize
-              in building scalable web applications and services. My journey in software
-              development has equipped me with a diverse skill set spanning frontend, backend,
-              and cloud technologies.
+              Recently, I identified and responsibly disclosed a security issue in Okta related to API behavior beyond the free trial period. The report was accepted and rewarded through the Bugcrowd platform. This success strengthened my interest in security research and encouraged me to blend development with vulnerability discovery.
             </p>
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-              I thrive in collaborative environments where innovation meets execution. Whether
-              it's architecting microservices, optimizing database queries, or crafting intuitive
-              user interfaces, I'm committed to delivering high-quality solutions that make a
-              real impact.
+              I enjoy building scalable automation solutions, solving complex backend challenges, and improving system security through research and engineering. My goal is to continue growing as an IAM developer and security researcher while contributing to high-impact projects.
             </p>
             
             <div className="flex flex-wrap gap-3 justify-center">
-              {['Java', 'MySQL', 'Javascript','Node.js', 'REST API','AWS'].map((tech, index) => (
+              {['Python', 'React.js','MySQL', 'Javascript','Node.js', 'REST API','Django','Docker','AWS','GCP','CyberArk'].map((tech, index) => (
                 <motion.span
                   key={tech}
                   initial={{ opacity: 0, scale: 0 }}

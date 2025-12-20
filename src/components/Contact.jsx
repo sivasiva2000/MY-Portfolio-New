@@ -25,38 +25,38 @@ const Contact = () => {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
+    e.preventDefault();
+    setIsSubmitting(true);
+
     try {
-      // TODO: Replace these with your EmailJS credentials
-      const serviceId = 'service_0x615mc'
-      const templateId = 'template_jbs86do'
-      const publicKey = '3o1X2O4b65WJOey6_'
-      
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
+      const response = await fetch("https://formspree.io/f/xjvqzqqe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
           subject: formData.subject,
-          message: formData.message,
-          to_email: 'sivakandhasami01@gmail.com'
-        },
-        publicKey
-      )
-      
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
+          message: formData.message
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+
     } catch (error) {
-      console.error('Email send failed:', error)
-      setSubmitStatus('error')
+      console.error(error);
+      setSubmitStatus("error");
+
     } finally {
-      setIsSubmitting(false)
-      setTimeout(() => setSubmitStatus(null), 5000)
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(null), 5000);
     }
-  }
+  };
+
 
   const contactInfo = [
     {
@@ -74,9 +74,9 @@ const Contact = () => {
   ]
 
   const socialLinks = [
-    { icon: FiGithub, href: 'https://github.com/Jaswanth-3174', label: 'GitHub' },
-    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/jaswanths2004/', label: 'LinkedIn' },
-    { icon: SiMedium, href: 'https://medium.com/@s.jaswanth2004', label: 'Medium' },
+    { icon: FiGithub, href: 'https://github.com/sivasiva2000', label: 'GitHub' },
+    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/siva-k6369739883/', label: 'LinkedIn' },
+    // { icon: SiMedium, href: 'https://medium.com/@s.jaswanth2004', label: 'Medium' },
     // { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter' }
   ]
 
@@ -111,8 +111,7 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
           >
-            Have a project in mind or want to collaborate? Feel free to reach out!
-            I'm always open to discussing new opportunities.
+            Whether you have a question, a project idea, or just want to say hello, feel free to reach out!
           </motion.p>
         </div>
 

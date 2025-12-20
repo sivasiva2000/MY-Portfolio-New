@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 import { ComputersCanvas } from './canvas'
 
-const Hero = () => {
+const Home = () => {
   return (
     <section id="home" className="relative w-full h-screen mx-auto">
       {/* Background gradient orbs */}
@@ -27,7 +27,7 @@ const Hero = () => {
             Software Development Engineer
           </p>
           <p className="text-[#dfd9ff]/80 font-light lg:text-[24px] sm:text-[20px] xs:text-[16px] text-[14px] lg:leading-[36px] mt-3">
-            Transforming ideas into elegant digital solutions
+            Passionate about building secure and scalable software solutions.
           </p>
         </div>
       </div>
@@ -59,4 +59,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default Home

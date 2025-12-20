@@ -2,12 +2,14 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import {
   SiJavascript, SiReact, SiNodedotjs, SiPython,
-  SiPostgresql, SiAmazonaws, SiDocker,
+  SiAmazonaws, SiDocker, SiDjango,
   SiGit, SiBootstrap, SiGithub, SiMysql,
-  SiJenkins, SiLinux, SiHtml5, SiCss3, SiSolidity
+  SiOkta, SiLinux, SiHtml5, SiCss3
 } from 'react-icons/si'
+
 import { FaJava } from 'react-icons/fa'
-import { FiBox, FiServer, FiCode } from 'react-icons/fi'
+import { FiCode, FiKey,FiServer,FiDatabase, FiRefreshCcw } from 'react-icons/fi'
+
 
 const Skills = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
@@ -15,23 +17,29 @@ const Skills = () => {
   const allSkills = [
     { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-400' },
     { name: 'React', icon: SiReact, color: 'text-cyan-400' },
-    { name: 'Node.js', icon: SiNodedotjs, color: 'text-green-500' },
+    { name: 'REST APIs', icon: FiCode, color: 'text-gray-600' },
+    { name: 'OAuth 2.0', icon: FiKey, color: 'text-blue-600' },
+    { name: 'Identity Lifecycle', icon: FiRefreshCcw, color: 'text-red-600' },
+    { name: 'Zero Trust IAM', icon: FiKey, color: 'text-orange-600' },
+    { name: 'RBAC/ABAC Models', icon: FiRefreshCcw, color: 'text-yellow-600' },
     { name: 'Python', icon: SiPython, color: 'text-blue-400' },
-    { name: 'Java', icon: FaJava, color: 'text-red-500' },
+    { name: 'Django', icon: SiDjango, color: 'text-red-500' },
     { name: 'MySQL', icon: SiMysql, color: 'text-blue-500' },
-    { name: 'PostgreSQL', icon: SiPostgresql, color: 'text-blue-600' },
-    { name: 'AWS', icon: SiAmazonaws, color: 'text-orange-400' },
+    { name: 'Active Directory', icon: FiServer, color: 'text-blue-800' },
+    { name: 'Okta', icon: SiOkta, color: 'text-blue-600' },
+    { name: 'CyberArk PAM', icon: FiKey, color: 'text-blue-600' },
+    { name: 'AWS & Identity Center', icon: SiAmazonaws, color: 'text-orange-400' },
     { name: 'Docker', icon: SiDocker, color: 'text-blue-500' },
     { name: 'Git', icon: SiGit, color: 'text-orange-600' },
+    { name: 'GitHub', icon: SiGithub, color: 'text-gray-700 dark:text-gray-300' },
+    { name: 'Node.js', icon: SiNodedotjs, color: 'text-green-500' },
     { name: 'Bootstrap', icon: SiBootstrap, color: 'text-purple-500' },
     { name: 'HTML5', icon: SiHtml5, color: 'text-orange-500' },
     { name: 'CSS3', icon: SiCss3, color: 'text-blue-500' },
-    { name: 'C', icon: FiCode, color: 'text-blue-600', isCustom: true },
-    { name: 'Solidity', icon: SiSolidity, color: 'text-gray-600' },
-    { name: 'GitHub', icon: SiGithub, color: 'text-gray-700 dark:text-gray-300' },
-    { name: 'Jenkins', icon: SiJenkins, color: 'text-red-600' },
+    { name: 'Redis', icon: FiDatabase, color: 'text-red-600' },
     { name: 'Linux', icon: SiLinux, color: 'text-yellow-500' },
-  ]
+    ]
+
 
   return (
     <section id="skills" className="section-padding bg-white dark:bg-dark-card w-full overflow-x-hidden">

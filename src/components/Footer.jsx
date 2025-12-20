@@ -14,10 +14,10 @@ const Footer = () => {
   ]
 
   const socialLinks = [
-    { icon: FiGithub, href: 'https://github.com/Jaswanth-3174', label: 'GitHub' },
-    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/jaswanths2004/', label: 'LinkedIn' },
+    { icon: FiGithub, href: 'https://github.com/sivasiva2000', label: 'GitHub' },
+    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/siva-k6369739883/', label: 'LinkedIn' },
     // { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: FiMail, href: 'mailto:s.jaswanth2004@gmail.com', label: 'Email' },
+    { icon: FiMail, href: 'mailto:sivakandhasami01@gmail.com', label: 'Email' },
   ]
 
   return (
@@ -34,8 +34,7 @@ const Footer = () => {
               &lt;S/&gt;
             </motion.a>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Building innovative solutions with passion and dedication.
-              Let's create something amazing together!
+              Building secure and scalable software solutions with passion and dedication.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -77,17 +76,17 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Stay Connected</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Follow me on Medium for articles on software development, tech insights, and project updates.
+              Interested in collaborating or have any questions? Let's connect!
             </p>
             <motion.a
-              href="https://medium.com/@s.jaswanth2004"
+              href="https://www.linkedin.com/in/siva-k6369739883/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary-500 text-white font-medium hover:bg-primary-600 transition-colors"
             >
-              Follow on Medium →
+              Follow on linkedin →
             </motion.a>
           </div>
         </div>
@@ -96,7 +95,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-200 dark:border-dark-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
             <p>
-              © {currentYear} All rights reserved. Built with{' '}
+              © {currentYear} portfolio made with{' '}
               <motion.span
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
@@ -104,7 +103,7 @@ const Footer = () => {
               >
               <FiHeart className="inline" />
             </motion.span>{' '}
-              by Jaswanth S
+              by Siva K.
             </p>
             <div className="flex gap-6">
               <motion.a

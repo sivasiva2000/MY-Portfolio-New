@@ -5,7 +5,7 @@ Portfolio/
 ├── src/
 │   ├── components/      # React components
 │   │   ├── Navbar.jsx   # Navigation bar with theme toggle
-│   │   ├── Hero.jsx     # Landing section
+│   │   ├── Home.jsx     # Landing section
 │   │   ├── About.jsx    # About section
 │   │   ├── Skills.jsx   # Skills showcase
 │   │   ├── Projects.jsx # Projects portfolio
