@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FiAward, FiCalendar, FiMapPin, FiFileText, FiShield, FiLink, FiCpu, FiExternalLink, FiImage } from 'react-icons/fi'
 import { HiAcademicCap } from 'react-icons/hi'
+import { asset } from '../lib/asset'
 
 const Education = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
@@ -19,11 +20,11 @@ const Education = () => {
       achievements: [
         {
           text: 'Academic Excellence Award — ranked First in IV year Electrical & Electronics Engineering',
-          image: '/achievements/academic-excellence-award-2023.jpg',
+          image: asset('/achievements/academic-excellence-award-2023.jpg'),
         },
         {
           text: 'Randeep Memorial Award 2023 — Best Outgoing Student, Electrical & Electronics Engineering',
-          image: '/achievements/best-outgoing-student-2023.jpg',
+          image: asset('/achievements/best-outgoing-student-2023.jpg'),
         },
       ],
       color: 'from-blue-500 to-cyan-500'
@@ -68,7 +69,7 @@ const Education = () => {
       meta: 'Broken Access Control → Privilege Escalation · $200 bounty',
       links: [
         { label: 'Bugcrowd Profile', href: 'https://bugcrowd.com/h/sivak08557e93-5289-47fa-bf58-a4d0f066d6d4', external: true },
-        { label: 'View Submission', href: '/achievements/okta-bugcrowd-submission.jpg', external: false },
+        { label: 'View Submission', href: asset('/achievements/okta-bugcrowd-submission.jpg'), external: false },
       ],
     },
     {
@@ -95,7 +96,7 @@ const Education = () => {
       status: 'Successfully Completed — Certificate of Completion',
       description: 'Comprehensive full stack programme covering backend, frontend, and database development, culminating in real-world web application projects.',
       skills: ['Python', 'Django', 'Django REST Framework', 'React', 'JavaScript', 'HTML', 'CSS', 'MySQL', 'REST APIs', 'Git'],
-      credential: '/certificates/python-full-stack-besant-technologies.jpg',
+      credential: asset('/certificates/python-full-stack-besant-technologies.jpg'),
     },
     {
       title: 'Python for Data Science',
@@ -103,7 +104,7 @@ const Education = () => {
       status: 'Completed 10 November 2022 · Verifiable credential',
       description: 'Applied Python to data manipulation and analysis, worked through core machine learning concepts, and built visualisations for communicating findings from data.',
       skills: ['Python', 'Data Analysis', 'Data Manipulation', 'Machine Learning', 'Data Visualization'],
-      credential: '/certificates/python-for-data-science-infosys.jpg',
+      credential: asset('/certificates/python-for-data-science-infosys.jpg'),
     },
   ]
 
@@ -117,7 +118,7 @@ const Education = () => {
       modules: [
         {
           name: '2025 KnowBe4 Security Awareness Training',
-          file: '/certificates/knowbe4-security-awareness-training-2025.pdf',
+          file: asset('/certificates/knowbe4-security-awareness-training-2025.pdf'),
         },
       ],
     },
@@ -128,19 +129,19 @@ const Education = () => {
       modules: [
         {
           name: 'Using the Phish Alert Button — Basic Use with Microsoft Outlook',
-          file: '/certificates/phish-alert-button-basic-outlook.pdf',
+          file: asset('/certificates/phish-alert-button-basic-outlook.pdf'),
         },
         {
           name: 'Using the Phish Alert Button — Report Suspicious Emails Using Microsoft Outlook',
-          file: '/certificates/phish-alert-button-report-suspicious-emails.pdf',
+          file: asset('/certificates/phish-alert-button-report-suspicious-emails.pdf'),
         },
         {
           name: 'When You Report, We Get Stronger',
-          file: '/certificates/when-you-report-we-get-stronger.pdf',
+          file: asset('/certificates/when-you-report-we-get-stronger.pdf'),
         },
         {
           name: 'When You Report, We Get Stronger — PAB',
-          file: '/certificates/when-you-report-we-get-stronger-pab.pdf',
+          file: asset('/certificates/when-you-report-we-get-stronger-pab.pdf'),
         },
       ],
     },
@@ -151,7 +152,7 @@ const Education = () => {
       modules: [
         {
           name: 'Internet Security When You Work From Home',
-          file: '/certificates/internet-security-work-from-home.pdf',
+          file: asset('/certificates/internet-security-work-from-home.pdf'),
         },
       ],
     },

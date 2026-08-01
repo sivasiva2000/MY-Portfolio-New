@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import { FiDownload, FiAward, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 import { ComputersCanvas } from './canvas'
+import { asset } from '../lib/asset'
 
-const resumeUrl = '/Siva_K_Backend_Developer_Resume.pdf'
+const resumeUrl = asset('Siva_K_Backend_Developer_Resume.pdf')
 const bugcrowdUrl = 'https://bugcrowd.com/h/sivak08557e93-5289-47fa-bf58-a4d0f066d6d4'
 
 const openTo = ['Python Backend', 'Django', 'IAM/IGA', 'API Development', 'AI Engineering']

@@ -152,8 +152,9 @@ function App() {
     )
   }
 
+  // basename matches Vite's base so routes resolve under the GitHub Pages subpath
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ScrollManager />
       <div
         id="app-root"
