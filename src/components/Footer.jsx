@@ -108,7 +108,7 @@ const Footer = () => {
               >
               <FiHeart className="inline" />
             </motion.span>{' '}
-              by Siva K.
+              by Siva K
             </p>
             <a
               href="mailto:sivakandhasami01@gmail.com"
