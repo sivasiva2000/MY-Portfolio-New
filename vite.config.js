@@ -22,15 +22,22 @@ const spaFallback = () => ({
   },
 })
 
-// GitHub Pages serves this project repo from a subpath, not the domain root:
-//   https://sivasiva2000.github.io/MY-Portfolio-New/
-// Without a matching base, every bundle URL points at the domain root and 404s,
-// which leaves a blank page. Dev stays on '/' so localhost:3000 works as usual.
+// A GitHub Pages *project* site is served from a subpath, not the domain root:
+//   https://<owner>.github.io/<repo>/
+// Without a matching base every bundle URL points at the domain root and 404s,
+// leaving a blank page. Rather than hardcode the repo name - which breaks
+// silently the next time the repo is renamed - derive it:
 //
-// If you later attach a custom domain (or move to a sivasiva2000.github.io repo),
-// the site is served from the root - set BASE to '/' and everything still works,
-// because runtime asset URLs go through src/lib/asset.js.
-const BASE = '/MY-Portfolio-New/'
+//   - GitHub Actions sets GITHUB_REPOSITORY to "owner/repo", so a project site
+//     resolves to "/repo/" automatically and survives renames.
+//   - A user site (owner.github.io) and custom domains serve from the root.
+//   - Local builds default to "/"; set BASE_PATH to override.
+//
+// Dev always stays on "/" so localhost:3000 is unaffected. Runtime asset URLs
+// go through src/lib/asset.js, so they follow whatever this resolves to.
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1]
+const inferredBase = !repoName || repoName.endsWith('.github.io') ? '/' : `/${repoName}/`
+const BASE = process.env.BASE_PATH || inferredBase
 
 export default defineConfig(({ command }) => ({
   base: command === 'build' ? BASE : '/',
