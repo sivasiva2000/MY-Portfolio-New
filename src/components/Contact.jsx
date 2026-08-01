@@ -1,13 +1,10 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FiMail, FiPhone, FiMapPin, FiSend, FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi'
-import { SiMedium } from 'react-icons/si'
-import emailjs from '@emailjs/browser'
+import { FiMail, FiPhone, FiMapPin, FiSend, FiGithub, FiLinkedin } from 'react-icons/fi'
 
 const Contact = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
-  const formRef = useRef()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -66,6 +63,12 @@ const Contact = () => {
       link: 'mailto:sivakandhasami01@gmail.com'
     },
     {
+      icon: FiPhone,
+      title: 'Phone',
+      value: '+91 98434 51831',
+      link: 'tel:+919843451831'
+    },
+    {
       icon: FiMapPin,
       title: 'Location',
       value: 'Bangalore, India',
@@ -76,8 +79,6 @@ const Contact = () => {
   const socialLinks = [
     { icon: FiGithub, href: 'https://github.com/sivasiva2000', label: 'GitHub' },
     { icon: FiLinkedin, href: 'https://www.linkedin.com/in/siva-k6369739883/', label: 'LinkedIn' },
-    // { icon: SiMedium, href: 'https://medium.com/@s.jaswanth2004', label: 'Medium' },
-    // { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter' }
   ]
 
   return (
@@ -185,9 +186,9 @@ const Contact = () => {
               transition={{ duration: 0.8, delay: 1 }}
               className="mt-12 p-8 rounded-2xl bg-gradient-to-br from-primary-500 to-purple-600 text-white"
             >
-              <h4 className="text-xl font-bold mb-2">Let's work together!</h4>
+              <h4 className="text-xl font-bold mb-2">Open to new opportunities</h4>
               <p className="text-white/90">
-                I'm always interested in hearing about new projects and opportunities.
+                Backend Python, Django, IAM/IGA, and AI Engineering roles.
               </p>
             </motion.div>
           </motion.div>

@@ -5,125 +5,260 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import zohoLogo from '../assets/zoho_logo.png'
+import {
+  FiShield, FiExternalLink, FiLink, FiKey,
+  FiRefreshCcw, FiCheckSquare, FiPieChart, FiBriefcase
+} from 'react-icons/fi'
 
-const experiences = [
+const role = {
+  title: 'Python Full Stack Developer (Backend-focused)',
+  company_name: 'I Am Logic',
+  company_url: 'https://iamlogic.com/',
+  location: 'Bangalore, India',
+  icon: FiBriefcase,
+  date: 'January 2024 - Present',
+  summary:
+    'Design and build enterprise Identity Governance & Administration (IGA) solutions — secure REST APIs, workflow automation, system integrations, and cloud-based identity management applications.',
+  environment: [
+    'Python', 'Django', 'Django REST Framework', 'React', 'Material UI', 'MySQL',
+    'Docker', 'Git', 'CI/CD', 'JWT', 'RBAC', 'Microsoft Graph API',
+    'Active Directory', 'AWS Identity Center', 'CyberArk PAM', 'REST APIs',
+    'HTML', 'CSS', 'JavaScript',
+  ],
+}
+
+const projects = [
   {
-    title: 'Technical Trainee',
-    company_name: 'Zoho Corp',
-    location: 'Chennai, India',
-    iconBg: '#667eea',
-    date: 'December 2025 - Present',
-    subtitle: 'Zoho ManageEngine',
-    points: [
-      'Backend training in Core Java, SQL, JDBC, Servlets, JSP, Struts2, JavaScript, and Apache Tomcat with hands-on MVC and CRUDapplication development.',
-      'Built and deployed database-driven applications using JSP, Servlets, JDBC, and MySQL with optimized queries, transactions, and authentication workflows.',
-      'Applied OOP principles, clean coding standards, debugging, exception handling, performance tuning, Git, and Agile development practices.',
+    name: 'Enterprise Identity Governance (IGA) Platform',
+    featured: true,
+    period: 'Jan 2024 – Present',
+    role: 'Backend Developer',
+    icon: FiShield,
+    technologies: ['Python', 'Django', 'DRF', 'React', 'MySQL', 'Docker'],
+    responsibilities: [
+      'Developed scalable REST APIs for identity governance and administration.',
+      'Designed database schemas for identities, applications, roles, groups, and entitlements.',
+      'Built the access request, approval workflow, and identity management modules.',
+      'Implemented RBAC, JWT authentication, and secure authorization mechanisms.',
+      'Developed certification campaigns and access review workflows.',
+      'Built audit logging and compliance reporting features.',
+      'Optimised backend performance through bulk operations and query tuning.',
     ],
-    technologies: ['Core Java', 'SQL', 'JDBC', 'Servlets', 'JSP', 'Struts2', 'JavaScript'],
   },
   {
-    title: 'Intern',
-    company_name: 'Zoho Corp',
-    location: 'Madurai, India',
-    iconBg: '#8b5cf6',
-    date: 'May 2025 - June 2025',
-    subtitle: 'Zoho Analytics - Client Framework',
-    points: [
-      'Engineered Java-based data extraction tools to parse and derive insights from complex key-value structures and deeply nested directories',
-      'Implemented CI/CD pipelines via Jenkins and GitHub, and containerized environments with Docker',
-      'Architected full-stack SQL query interface leveraging Monaco Editor for frontend and Trino CLI for distributed query execution across large-scale datasets',
+    name: 'Enterprise Connector Framework',
+    period: 'Jun 2024 – Present',
+    role: 'Backend Developer',
+    icon: FiLink,
+    technologies: ['Python', 'Django', 'Microsoft Graph API', 'LDAP', 'boto3', 'CyberArk REST API'],
+    responsibilities: [
+      'Developed a reusable connector framework for enterprise integrations.',
+      'Built 7+ production connectors, including Active Directory, Microsoft Graph, AWS Identity Center, and CyberArk PAM.',
+      'Implemented user provisioning and de-provisioning.',
+      'Developed entitlement synchronisation across connected systems.',
+      'Created scheduled synchronisation jobs.',
+      'Added retry mechanisms, structured logging, and error handling.',
+      'Optimised connector performance for large enterprise environments.',
     ],
-    technologies: ['Java', 'JavaScript', 'Jenkins', 'Docker', 'Zoho Analytics'],
+  },
+  {
+    name: 'CyberArk Entitlement Management & Reporting',
+    client: 'NSE (National Stock Exchange)',
+    period: 'Jan 2025 – Present',
+    role: 'Backend Developer',
+    icon: FiKey,
+    technologies: ['Python', 'Django', 'CyberArk REST API', 'React', 'MySQL'],
+    responsibilities: [
+      'Integrated CyberArk PAM with the IGA platform.',
+      'Retrieved safes, privileged accounts, users, and groups.',
+      'Developed entitlement review functionality.',
+      'Built compliance and audit reports.',
+      'Developed React UI screens for entitlement review.',
+      'Implemented CSV and Excel export functionality.',
+      'Improved reporting performance for enterprise-scale datasets.',
+    ],
+  },
+  {
+    name: 'Identity Lifecycle Automation (JML)',
+    role: 'Backend Developer',
+    icon: FiRefreshCcw,
+    technologies: ['Django', 'Python', 'MySQL'],
+    responsibilities: [
+      'Automated Joiner, Mover, and Leaver processes.',
+      'Built lifecycle workflows for onboarding and offboarding.',
+      'Implemented approval routing.',
+      'Automated account provisioning.',
+      'Integrated lifecycle events with the enterprise connectors.',
+      'Reduced manual identity administration effort.',
+    ],
+  },
+  {
+    name: 'Access Request & Approval Workflow Engine',
+    role: 'Backend Developer',
+    icon: FiCheckSquare,
+    technologies: ['Django', 'DRF', 'React'],
+    responsibilities: [
+      'Developed configurable approval workflows.',
+      'Built multi-level approval routing.',
+      'Implemented email notifications.',
+      'Added SLA tracking.',
+      'Developed approval history and audit functionality.',
+      'Integrated workflow execution with the provisioning connectors.',
+    ],
+  },
+  {
+    name: 'Role Mining & Access Certification',
+    role: 'Backend Developer',
+    icon: FiPieChart,
+    technologies: ['Python', 'Django', 'MySQL'],
+    responsibilities: [
+      'Developed role mining using the FP-Growth algorithm.',
+      'Built certification campaign management.',
+      'Developed reviewer dashboards.',
+      'Automated certification scheduling.',
+      'Generated governance reports.',
+      'Improved entitlement review efficiency.',
+    ],
   },
 ]
 
-const ExperienceCard = ({ experience }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
+const TechChips = ({ items, prefix, small }) => (
+  <div className='flex flex-wrap gap-2'>
+    {items.map((tech, index) => (
+      <span
+        key={`${prefix}-${index}`}
+        className={`${small ? 'px-2.5 py-1 text-[11px]' : 'px-3 py-1.5 text-[12px]'} font-semibold rounded-lg border border-primary-400/40 hover:border-primary-400/70 transition-all duration-300 bg-gradient-to-r from-primary-500/15 to-purple-500/15`}
+        style={{ color: '#a78bfa' }}
+      >
+        {tech}
+      </span>
+    ))}
+  </div>
+)
+
+// Shared card chrome so every timeline entry keeps the same hover treatment.
+const useTimelineStyles = (isHovered) => ({
+  contentStyle: {
+    background: isHovered ? "rgba(30, 30, 30, 0.9)" : "rgba(20, 20, 20, 0.8)",
+    color: "#fff",
+    borderRadius: "12px",
+    border: isHovered ? "1px solid rgba(102, 126, 234, 0.5)" : "1px solid rgba(102, 126, 234, 0.15)",
+    boxShadow: isHovered
+      ? "0 0 30px rgba(102, 126, 234, 0.4), 0 8px 32px rgba(0, 0, 0, 0.3)"
+      : "0 8px 32px rgba(0, 0, 0, 0.3)",
+    backdropFilter: "blur(10px)",
+    transition: "all 0.3s ease",
+    cursor: "pointer",
+  },
+  contentArrowStyle: { borderRight: "7px solid rgba(20, 20, 20, 0.8)" },
+  iconStyle: {
+    background: "#ffffff",
+    boxShadow: "0 0 0 4px rgba(10, 10, 10, 0.8)",
+  },
+})
+
+const RoleCard = ({ role }) => {
+  const [isHovered, setIsHovered] = React.useState(false)
+  const styles = useTimelineStyles(isHovered)
 
   return (
     <VerticalTimelineElement
-      contentStyle={{
-        background: isHovered ? "rgba(30, 30, 30, 0.9)" : "rgba(20, 20, 20, 0.8)",
-        color: "#fff",
-        borderRadius: "12px",
-        border: isHovered ? "1px solid rgba(102, 126, 234, 0.5)" : "1px solid rgba(102, 126, 234, 0.15)",
-        boxShadow: isHovered 
-          ? "0 0 30px rgba(102, 126, 234, 0.4), 0 8px 32px rgba(0, 0, 0, 0.3)"
-          : "0 8px 32px rgba(0, 0, 0, 0.3)",
-        backdropFilter: "blur(10px)",
-        transition: "all 0.3s ease",
-        cursor: "pointer",
-      }}
-      contentArrowStyle={{ borderRight: "7px solid rgba(20, 20, 20, 0.8)" }}
-      date={experience.date}
-      iconStyle={{ 
-        background: "#ffffff",
-        boxShadow: "0 0 0 4px rgba(10, 10, 10, 0.8)"
-      }}
+      {...styles}
+      date={role.date}
       icon={
         <div className='flex justify-center items-center w-full h-full overflow-hidden rounded-full'>
-          <img src={zohoLogo} alt="Zoho Corp" className="w-[95%] h-[95%] object-contain" />
+          {/* The library forces position/left/top/margin on any svg in this slot,
+              which knocks the icon off-centre - reset it and let flex centre it. */}
+          <role.icon className="!static !m-0 w-6 h-6 text-primary-500" />
         </div>
       }
     >
-      <div 
+      <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-      {/* Role and Company - Compact Header */}
-      <div className="mb-4" style={{ lineHeight: 0 }}>
-        <h3 className='text-white text-[20px] font-bold block m-0 p-0' style={{ lineHeight: '20px' }}>
-          {experience.title}
-        </h3>
-        <p className='text-[16px] font-semibold text-gray-200 block m-0 p-0' style={{ lineHeight: '16px' }}>
-          {experience.company_name}
-        </p>
-        {experience.location && (
-          <p className='text-gray-400 text-[14px] block m-0 p-0' style={{ lineHeight: '14px' }}>
-            {experience.location}
-          </p>
-        )}
-        {experience.subtitle && (
-          <p className='text-gray-400 text-[14px] leading-relaxed mt-3 mb-0'>
-            {experience.subtitle}
-          </p>
-        )}
-      </div>
-
-      {/* Achievements */}
-      <ul className='space-y-2 mb-3'>
-        {experience.points.map((point, index) => (
-          <li
-            key={`experience-point-${index}`}
-            className='text-gray-300 text-[14px] leading-relaxed pl-4 relative'
+        <div className="mb-4" style={{ lineHeight: 0 }}>
+          <h3 className='text-white text-[20px] font-bold block m-0 p-0' style={{ lineHeight: '24px' }}>
+            {role.title}
+          </h3>
+          <a
+            href={role.company_url}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-[16px] font-semibold text-gray-200 hover:text-primary-400 transition-colors inline-flex items-center gap-1.5 m-0 p-0'
+            style={{ lineHeight: '20px' }}
           >
-            <span className="absolute left-0 top-1.5 w-1.5 h-1.5 bg-primary-500 rounded-full"></span>
-            {point}
-          </li>
-        ))}
-      </ul>
-
-      {/* Technologies */}
-      {experience.technologies && (
-        <div className='flex flex-wrap gap-2 pt-3 border-t border-white/10'>
-          {experience.technologies.map((tech, index) => (
-            <span
-              key={`tech-${index}`}
-              className='px-3 py-1.5 text-[12px] font-semibold rounded-lg border border-primary-400/40 hover:border-primary-400/70 transition-all duration-300 bg-gradient-to-r from-primary-500/15 to-purple-500/15'
-              style={{
-                color: '#a78bfa'
-              }}
-            >
-              {tech}
-            </span>
-          ))}
+            {role.company_name}
+            <FiExternalLink className='text-[13px]' />
+          </a>
+          <p className='text-gray-400 text-[14px] block m-0 p-0' style={{ lineHeight: '18px' }}>
+            {role.location}
+          </p>
+          <p className='text-gray-400 text-[14px] leading-relaxed mt-3 mb-0'>
+            {role.summary}
+          </p>
         </div>
-      )}
+
+        <div className='pt-4 border-t border-white/10'>
+          <p className='text-gray-400 text-[13px] font-semibold mb-2.5'>Technology Stack</p>
+          <TechChips items={role.environment} prefix='env-tech' />
+        </div>
       </div>
     </VerticalTimelineElement>
-  );
-};
+  )
+}
+
+const ProjectCard = ({ project }) => {
+  const [isHovered, setIsHovered] = React.useState(false)
+  const styles = useTimelineStyles(isHovered)
+
+  // Prefer the project period in the timeline's date slot; fall back to the role
+  // for the platform modules that don't have their own start date yet.
+  const timelineDate = project.period || project.role
+
+  return (
+    <VerticalTimelineElement
+      {...styles}
+      date={timelineDate}
+      icon={
+        <div className='flex justify-center items-center w-full h-full overflow-hidden rounded-full'>
+          {/* See RoleCard: reset the library's forced svg positioning. */}
+          <project.icon className="!static !m-0 w-6 h-6 text-primary-500" />
+        </div>
+      }
+    >
+      <div
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <h3 className='text-white text-[17px] font-bold mb-1'>
+          {project.name}
+          {project.featured && <span className='ml-1.5 text-primary-400'>★</span>}
+        </h3>
+        <p className='text-gray-500 text-[12px] mb-3'>
+          {project.role}
+          {project.client && ` · ${project.client}`}
+        </p>
+
+        <ul className='space-y-1.5 mb-4'>
+          {project.responsibilities.map((responsibility, i) => (
+            <li
+              key={`responsibility-${i}`}
+              className='text-gray-300 text-[13px] leading-relaxed pl-4 relative'
+            >
+              <span className="absolute left-0 top-1.5 w-1 h-1 bg-primary-500 rounded-full"></span>
+              {responsibility}
+            </li>
+          ))}
+        </ul>
+
+        <div className='pt-3 border-t border-white/10'>
+          <TechChips items={project.technologies} prefix='p-tech' small />
+        </div>
+      </div>
+    </VerticalTimelineElement>
+  )
+}
 
 const Experience = () => {
   return (
@@ -158,13 +293,12 @@ const Experience = () => {
           </motion.p>
         </div>
 
+        {/* Role first, then each project alternating left and right down the timeline */}
         <div className='mt-20 flex flex-col'>
           <VerticalTimeline>
-            {experiences.map((experience, index) => (
-              <ExperienceCard
-                key={`experience-${index}`}
-                experience={experience}
-              />
+            <RoleCard role={role} />
+            {projects.map((project, index) => (
+              <ProjectCard key={`project-${index}`} project={project} />
             ))}
           </VerticalTimeline>
         </div>

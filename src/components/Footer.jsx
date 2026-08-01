@@ -1,22 +1,27 @@
 import { motion } from 'framer-motion'
-import { FiHeart, FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi'
+import { FiHeart, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
+
+// Router-aware: the footer renders on /blog too, where bare hashes would not resolve
+const MotionLink = motion(Link)
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', to: '/#home' },
+    { name: 'About', to: '/#about' },
+    { name: 'Skills', to: '/#skills' },
+    { name: 'Projects', to: '/#projects' },
+    { name: 'Experience', to: '/#experience' },
+    { name: 'Education', to: '/#education' },
+    { name: 'Articles', to: '/blog' },
+    { name: 'Contact', to: '/#contact' },
   ]
 
   const socialLinks = [
     { icon: FiGithub, href: 'https://github.com/sivasiva2000', label: 'GitHub' },
     { icon: FiLinkedin, href: 'https://www.linkedin.com/in/siva-k6369739883/', label: 'LinkedIn' },
-    // { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter' },
     { icon: FiMail, href: 'mailto:sivakandhasami01@gmail.com', label: 'Email' },
   ]
 
@@ -26,15 +31,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <motion.a
-              href="#home"
+            <MotionLink
+              to="/#home"
               className="text-2xl font-bold gradient-text font-mono inline-block mb-4"
               whileHover={{ scale: 1.05 }}
             >
               &lt;S/&gt;
-            </motion.a>
+            </MotionLink>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Building secure and scalable software solutions with passion and dedication.
+              Backend developer building secure, scalable Python and Django services for enterprise identity governance.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -60,13 +65,13 @@ const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <motion.a
-                    href={link.href}
+                  <MotionLink
+                    to={link.to}
                     whileHover={{ x: 5 }}
                     className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors inline-block"
                   >
                     {link.name}
-                  </motion.a>
+                  </MotionLink>
                 </li>
               ))}
             </ul>
@@ -105,29 +110,19 @@ const Footer = () => {
             </motion.span>{' '}
               by Siva K.
             </p>
-            <div className="flex gap-6">
-              <motion.a
-                href="#"
-                whileHover={{ y: -2 }}
-                className="hover:text-primary-500 transition-colors"
-              >
-                Privacy Policy
-              </motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ y: -2 }}
-                className="hover:text-primary-500 transition-colors"
-              >
-                Terms of Service
-              </motion.a>
-            </div>
+            <a
+              href="mailto:sivakandhasami01@gmail.com"
+              className="hover:text-primary-500 transition-colors"
+            >
+              sivakandhasami01@gmail.com
+            </a>
           </div>
         </div>
       </div>
 
       {/* Back to Top Button */}
-      <motion.a
-        href="#home"
+      <MotionLink
+        to="/#home"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         whileHover={{ scale: 1.1 }}
@@ -136,7 +131,7 @@ const Footer = () => {
         aria-label="Back to top"
       >
         ↑
-      </motion.a>
+      </MotionLink>
     </footer>
   )
 }

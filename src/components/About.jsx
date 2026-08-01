@@ -1,38 +1,41 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FiCode, FiDatabase, FiCloud, FiTool } from 'react-icons/fi'
-import profileImage from '../assets/profile.jpg'
+import { FiCode, FiDatabase, FiCloud, FiShield } from 'react-icons/fi'
+
+const bugcrowdUrl = 'https://bugcrowd.com/h/sivak08557e93-5289-47fa-bf58-a4d0f066d6d4'
 
 const About = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
 
+  // Quick-scan summary. Every figure is derived from content on this page.
   const stats = [
     { label: 'Years Experience', value: '2+' },
-    { label: 'Projects Completed', value: '15+' },
-    { label: 'Technologies', value: '20+' },
-    // { label: 'Happy Clients', value: '30+' },
+    { label: 'Enterprise Modules', value: '6+' },
+    { label: 'Enterprise Connectors', value: '7+' },
+    { label: 'Public Repositories', value: '21+' },
+    { label: 'Security Recognition', value: 'Okta' },
   ]
 
   const highlights = [
     {
       icon: FiCode,
-      title: 'Full Stack Development',
-      description: 'Expertise in building end-to-end applications with modern frameworks and best practices.',
+      title: 'Backend & API Engineering',
+      description: 'Django and Django REST Framework services built around clean data models, serializers, middleware, and well-versioned REST endpoints.',
+    },
+    {
+      icon: FiShield,
+      title: 'Identity & Access Governance',
+      description: 'JWT authentication, role-based access control, SSO/MFA, and end-to-end audit trails that satisfy enterprise compliance requirements.',
     },
     {
       icon: FiDatabase,
-      title: 'Database Design',
-      description: 'Proficient in designing scalable database schemas and optimizing query performance.',
+      title: 'Database & Query Optimization',
+      description: 'Relational modelling in MySQL for users, roles, groups, and entitlements, with query tuning that keeps sync and reporting fast at scale.',
     },
     {
       icon: FiCloud,
-      title: 'Cloud & Deployment',
-      description: 'Experience deploying applications on Vercel, GitHub Pages, and AWS with modern CI/CD practices.',
-    },
-    {
-      icon: FiTool,
-      title: 'IGA & Security',
-      description: 'Skilled in Identity Governance & Administration (IGA) solutions and security automation to enhance system integrity.',
+      title: 'Cloud, Docker & CI/CD',
+      description: 'Connector-based integrations across AWS, Azure, Active Directory, and Microsoft 365, shipped through Dockerised CI/CD pipelines.',
     },
   ]
 
@@ -64,28 +67,7 @@ const About = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16">
-          {/* Left - Image/Illustration */}
-          {/* TODO: Uncomment when profile image is available
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary-500 to-purple-600 p-1">
-              <div className="w-full h-full rounded-2xl overflow-hidden">
-                <img 
-                  src={profileImage} 
-                  alt="Jaswanth S - Software Development Engineer" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            <div className="absolute -z-10 -top-4 -right-4 w-full h-full rounded-2xl bg-primary-500/20 blur-xl"></div>
-          </motion.div>
-          */}
-
-          {/* Right - Description */}
+          {/* Description */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
@@ -93,17 +75,32 @@ const About = () => {
             className="px-4 sm:px-0 lg:col-span-2 max-w-4xl mx-auto text-center"
           >
             <h3 className="text-2xl sm:text-3xl font-bold mb-4">
-              I am a software developer focused on Identity & Access Management (IAM), API engineering, and security automation. I have hands-on experience working with platforms such as Okta, AWS IAM Identity Center, CyberArk, and ServiceNow.
+              I am a backend-focused Python developer who builds secure, scalable web services with Django and Django REST Framework.
             </h3>
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-              Recently, I identified and responsibly disclosed a security issue in Okta related to API behavior beyond the free trial period. The report was accepted and rewarded through the Bugcrowd platform. This success strengthened my interest in security research and encouraged me to blend development with vulnerability discovery.
+              My day-to-day work is REST API design, relational data modelling in MySQL, JWT authentication, and role-based access control. I have designed, developed, and maintained a full-stack enterprise Identity Governance &amp; Administration (IGA) platform end to end &mdash; owning the data models, serializers, and request/response flows, then wiring it into AWS, Azure, Active Directory, and Microsoft 365 through connector-based integrations.
+            </p>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+              I care about the parts of a system that are easy to get wrong: query performance under real synchronisation load, audit logging that stands up to a compliance review, and event-driven jobs that replace manual processes without silently failing. Everything ships through Docker and CI/CD pipelines so deployments stay repeatable.
             </p>
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-              I enjoy building scalable automation solutions, solving complex backend challenges, and improving system security through research and engineering. My goal is to continue growing as an IAM developer and security researcher while contributing to high-impact projects.
+              That same instinct led me into security research. In November 2025 I reported a broken
+              access control issue to <span className="font-semibold">Okta</span> &mdash; API access
+              that stayed live after trial expiration &mdash; which was accepted as a valid finding
+              and rewarded through{' '}
+              <a
+                href={bugcrowdUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary-500 hover:text-primary-600 underline decoration-primary-500/40 hover:decoration-primary-500 transition-colors"
+              >
+                Bugcrowd
+              </a>
+              . I enjoy solving hard backend problems and strengthening the systems I work on.
             </p>
-            
+
             <div className="flex flex-wrap gap-3 justify-center">
-              {['Python', 'React.js','MySQL', 'Javascript','Node.js', 'REST API','Django','Docker','AWS','GCP','CyberArk'].map((tech, index) => (
+              {['Python', 'Django', 'Django REST Framework', 'REST APIs', 'MySQL', 'JWT & RBAC', 'Okta', 'CyberArk PAM', 'Docker', 'CI/CD', 'AWS', 'Azure', 'Active Directory', 'React'].map((tech, index) => (
                 <motion.span
                   key={tech}
                   initial={{ opacity: 0, scale: 0 }}
@@ -125,14 +122,17 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex justify-center mb-12 sm:mb-16"
         >
-          <div className="grid grid-cols-3 gap-4 sm:gap-6 max-w-4xl">
+          {/* w-full so the 1fr columns size against the container, not max-content -
+              without it this grid overflows (and gets clipped) on narrow screens. */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 max-w-5xl w-full">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="text-center p-4 sm:p-6 rounded-xl bg-white dark:bg-dark-card shadow-lg"
+                className="text-center p-4 sm:p-6 lg:p-4 rounded-xl bg-white dark:bg-dark-card shadow-lg"
               >
-                <div className="text-3xl sm:text-4xl font-bold gradient-text mb-2">{stat.value}</div>
+                {/* lg steps back down: six columns leaves each tile narrow */}
+                <div className="text-3xl sm:text-4xl lg:text-3xl font-bold gradient-text mb-2 break-words">{stat.value}</div>
                 <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
               </motion.div>
             ))}
