@@ -9,7 +9,7 @@ const bugcrowdUrl = 'https://bugcrowd.com/h/sivak08557e93-5289-47fa-bf58-a4d0f06
 const openTo = ['Python Backend', 'Django', 'IAM/IGA', 'API Development', 'AI Engineering']
 
 const socials = [
-  { icon: FiGithub, href: 'https://github.com/sivasiva2000', label: 'GitHub' },
+  { icon: FiGithub, href: 'https://github.com/siva-k-dev', label: 'GitHub' },
   { icon: FiLinkedin, href: 'https://www.linkedin.com/in/siva-k6369739883/', label: 'LinkedIn' },
   { icon: FiMail, href: 'mailto:sivakandhasami01@gmail.com', label: 'Email' },
 ]

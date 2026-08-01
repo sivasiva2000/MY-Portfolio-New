@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer'
 import { FiGithub, FiGitBranch, FiCode, FiExternalLink } from 'react-icons/fi'
 import { SiPython } from 'react-icons/si'
 
-const GITHUB_USER = 'sivasiva2000'
+const GITHUB_USER = 'siva-k-dev'
 const PROFILE_URL = `https://github.com/${GITHUB_USER}`
 
 const GithubStats = () => {

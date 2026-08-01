@@ -20,7 +20,7 @@ const Footer = () => {
   ]
 
   const socialLinks = [
-    { icon: FiGithub, href: 'https://github.com/sivasiva2000', label: 'GitHub' },
+    { icon: FiGithub, href: 'https://github.com/siva-k-dev', label: 'GitHub' },
     { icon: FiLinkedin, href: 'https://www.linkedin.com/in/siva-k6369739883/', label: 'LinkedIn' },
     { icon: FiMail, href: 'mailto:sivakandhasami01@gmail.com', label: 'Email' },
   ]

@@ -285,7 +285,7 @@ response.set_cookie(
     readingTime: '7 min read',
     tags: ['Python', 'MCP', 'AI', 'Tooling'],
     links: [
-      { label: 'AI_MCP_PROJECT on GitHub', href: 'https://github.com/sivasiva2000/AI_MCP_PROJECT' },
+      { label: 'AI_MCP_PROJECT on GitHub', href: 'https://github.com/siva-k-dev/AI_MCP_PROJECT' },
     ],
     sections: [
       {

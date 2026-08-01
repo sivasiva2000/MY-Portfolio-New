@@ -157,7 +157,7 @@ MySQL ──> React review screens
       { name: 'AI Tooling', color: 'pink-text-gradient' },
     ],
     image: '🧩',
-    source_code_link: 'https://github.com/sivasiva2000/AI_MCP_PROJECT',
+    source_code_link: 'https://github.com/siva-k-dev/AI_MCP_PROJECT',
     details: {
       overview:
         'A personal project exploring the Model Context Protocol — the emerging standard for how AI models discover and call external tools and read external resources.',
@@ -193,7 +193,7 @@ MCP Server
       { name: 'AI Agents', color: 'pink-text-gradient' },
     ],
     image: '🤖',
-    source_code_link: 'https://github.com/sivasiva2000/AI_project',
+    source_code_link: 'https://github.com/siva-k-dev/AI_project',
     details: {
       overview:
         'A personal project turning a raw LLM API into something that behaves like an agent — able to use tools and carry out tasks, not just answer prompts.',
@@ -233,7 +233,7 @@ Agent server (Python)
       { name: 'CSS', color: 'green-text-gradient' },
     ],
     image: '🔳',
-    source_code_link: 'https://github.com/sivasiva2000/QR_PROJECT',
+    source_code_link: 'https://github.com/siva-k-dev/QR_PROJECT',
     details: {
       overview:
         'A small, focused Python web app that generates QR codes from whatever the user pastes in — text, a URL, or contact details — and hands back a downloadable PNG.',
